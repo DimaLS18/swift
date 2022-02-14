@@ -1,0 +1,82 @@
+//
+//  main.swift
+//  lesson2_Kovrigin
+//
+//  Created by Dima Kovrigin on 14.02.2022.
+//
+
+import Foundation
+
+// Написать функцию, которая определяет, четное число или нет.
+
+func parityСheck(for number: Int) {
+    number % 2 == 0 ? print("Число \(number) четное") : print("Число \(number) нечетное")
+}
+
+parityСheck(for: 14)
+parityСheck(for: 19)
+parityСheck(for: 18)
+parityСheck(for: 1922)
+
+// Написать функцию, которая определяет, делится ли число без остатка на 3.
+
+func divisionThree(for number: Int) {
+    number % 3 == 0 ? print("Число \(number) делится на 3 без остатка") : print("Число \(number) не делится на 3 без остатка")
+}
+
+divisionThree(for: 72)
+divisionThree(for: 120)
+divisionThree(for: 11)
+divisionThree(for: 82)
+
+//Создать возрастающий массив из 100 чисел
+
+var numbers = [Int](1...100)
+print(numbers)
+
+//Удалить из этого массива все четные числа и все числа, которые не делятся на 3.
+
+for elementMasiva in numbers {
+    if (elementMasiva % 2 == 0 || elementMasiva % 3 == 0), let count = numbers.firstIndex(of: elementMasiva) {
+        numbers.remove(at: count)
+    }
+}
+print(numbers)
+print ("--------------")
+
+// Написать функцию, которая добавляет в массив новое число Фибоначчи, и добавить при помощи нее 50 элементов.
+
+func fibonahiRecursion(n: Int) -> Int {
+
+    guard n > 1 else { return n }
+
+    return fibonahiRecursion(n: n-1) + fibonahiRecursion(n: n-2)
+}
+
+print(fibonahiRecursion(n: 10))
+
+//
+
+let num = 100
+var prostoArray: [Int] = []
+
+func prostoChislo(number: Int) -> Bool {
+    if number < 2 {
+        return false
+    }
+
+    for i in 2..<number {
+        if number % i == 0 {
+            return false
+        }
+    }
+    return true
+}
+
+for i in 1...num {
+    if prostoChislo(number: i) {
+        prostoArray.append(i)
+    }
+}
+print(prostoArray)
+
